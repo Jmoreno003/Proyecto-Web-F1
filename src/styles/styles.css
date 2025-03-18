@@ -1,0 +1,86 @@
+/* Estilo global */
+h1 {
+    font-size: 2.5rem; /* Tamaño del título */
+    margin-bottom: 1rem; /* Espaciado inferior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: system-ui, sans-serif;
+    background-color: #1f2937; /* Fondo gris oscuro */
+    color: #ffffff; /* Texto blanco */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal */
+main {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto */
+    gap: 2rem; /* Espaciado entre los botones */
+    width: 100%;
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    height: 100%; /* Ocupa toda la altura de la pantalla */
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+    main {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
+    }
+}
+
+@media (min-width: 1024px) {
+    main {
+        grid-template-columns: repeat(4, 1fr); /* Cuatro columnas en pantallas grandes */
+    }
+}
+
+/* Botones */
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem; /* Bordes redondeados */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 1.25rem; /* Tamaño del texto */
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efectos hover */
+a:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+/* Colores de los botones */
+a:nth-child(1) {
+    background: linear-gradient(to right, #3b82f6, #1e40af); /* Azul */
+    color: white;
+}
+
+a:nth-child(2) {
+    background: linear-gradient(to right, #ef4444, #b91c1c); /* Rojo */
+    color: white;
+}
+
+a:nth-child(3) {
+    background: linear-gradient(to right, #10b981, #065f46); /* Verde */
+    color: white;
+}
+
+a:nth-child(4) {
+    background: linear-gradient(to right, #f59e0b, #b45309); /* Amarillo */
+    color: white;
+}

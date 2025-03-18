@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import '../styles/circuitos.css';
+
+const circuitos = await getCollection('circuitos');
+---
+
+<Layout title="F1 Time 🏎️">
+    <h1>Circuitos</h1>
+    <main class="circuitos-container">
+        {circuitos.map((circuito) => {
+            const { slug, data } = circuito;
+            const { Titulo, Imagen } = data;
+            return (
+                <a href={`/circuitos/${slug}`} class="circuito-card">
+                    <div class="circuito-image-container">
+                        <img src={`/${Imagen}`} alt={`Imagen de ${Titulo}`} class="circuito-image" />
+                    </div>
+                    <h3 class="circuito-title">{Titulo}</h3>
+                </a>
+            );
+        })}
+    </main>
+</Layout>

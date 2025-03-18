@@ -1,0 +1,74 @@
+/* Título principal */
+h1 {
+    font-size: 2.5rem; /* Tamaño del título */
+    margin-bottom: 1rem; /* Espaciado inferior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Contenedor principal */
+.circuitos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta automáticamente las columnas */
+    gap: 1.5rem; /* Espaciado entre las tarjetas */
+    width: 100%;
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* Tarjetas de circuito */
+.circuito-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2d3748; /* Fondo gris oscuro */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    padding: 1rem;
+    text-decoration: none; /* Sin subrayado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.circuito-card:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+/* Contenedor de la imagen */
+.circuito-image-container {
+    width: 100%;
+    height: 10rem; /* Altura fija de la caja de la imagen */
+    background-color: #4a5568; /* Fondo gris más claro */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    overflow: hidden; /* Asegura que la imagen no se salga de la caja */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem; /* Espaciado entre la imagen y el título */
+}
+
+/* Imagen */
+.circuito-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen al contenedor */
+    object-position: center; /* Centra la imagen dentro del contenedor */
+    transition: transform 0.3s ease; /* Transición suave para el hover */
+}
+
+.circuito-image-container:hover .circuito-image {
+    transform: scale(1.1); /* Efecto de zoom al pasar el cursor */
+}
+
+/* Título */
+.circuito-title {
+    font-size: 1rem; /* Tamaño del texto */
+    font-weight: bold;
+    color: #ffffff; /* Texto blanco */
+    text-align: center;
+    margin: 0;
+}
