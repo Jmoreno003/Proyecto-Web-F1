@@ -30,3 +30,10 @@ Características: Es un circuito técnico que combina rectas rápidas con seccio
 - **Sebastian Vettel:** Ganó en 2011, 2017 y 2018.
 - **Charles Leclerc:** Ganó en 2022.
 - **Max Verstappen:** Ganó en 2023.
+
+## Curiosidades
+- **Adelaida vs Melbourne**: El circuito de Adelaida era más rápido y peligroso, mientras que Albert Park es más técnico y seguro.
+
+- **Horario**: El Gran Premio de Australia suele ser la primera carrera de la temporada, aunque no siempre ha sido así. En 2023, fue la tercera carrera del calendario.
+
+- **Cultura**: Es uno de los eventos deportivos más importantes de Australia, atrayendo a miles de turistas y fanáticos de todo el mundo.

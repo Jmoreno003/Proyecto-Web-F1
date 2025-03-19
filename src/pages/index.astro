@@ -5,21 +5,58 @@ import '../styles/index.css';
 <Layout title="F1 Time 🏎️">
     <h1 class="text-center text-5xl font-extrabold text-white mb-12">Bienvenido a F1 Time 🏎️</h1>
     <main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 min-h-screen bg-gray-800 text-white px-4 py-10 place-items-center">
-        <!-- Botón 1 -->
+        <!-- Botones -->
         <a href="/circuitos" class="menu-button bg-gradient-to-r from-blue-500 to-blue-700 text-white py-6 px-8 rounded-xl text-center shadow-xl hover:scale-105 hover:bg-blue-800 transition-all ease-in-out duration-300 transform hover:shadow-2xl w-full max-w-xs">
             Circuitos
         </a>
-        <!-- Botón 2 -->
         <a href="/pilotos" class="menu-button bg-gradient-to-r from-red-500 to-red-700 text-white py-6 px-8 rounded-xl text-center shadow-xl hover:scale-105 hover:bg-red-800 transition-all ease-in-out duration-300 transform hover:shadow-2xl w-full max-w-xs">
             Pilotos
         </a>
-        <!-- Botón 3 -->
         <a href="/escuderias" class="menu-button bg-gradient-to-r from-green-500 to-green-700 text-white py-6 px-8 rounded-xl text-center shadow-xl hover:scale-105 hover:bg-green-800 transition-all ease-in-out duration-300 transform hover:shadow-2xl w-full max-w-xs">
             Escuderías
         </a>
-        <!-- Botón 4 -->
         <a href="/puntos" class="menu-button bg-gradient-to-r from-yellow-500 to-yellow-700 text-white py-6 px-8 rounded-xl text-center shadow-xl hover:scale-105 hover:bg-yellow-800 transition-all ease-in-out duration-300 transform hover:shadow-2xl w-full max-w-xs">
             Puntos
         </a>
     </main>
+    
+<!-- Audio de fondo -->
+<audio id="background-audio" src="/Opening.mp3" loop></audio>
+<div class="audio-controls">
+    <button id="play-audio" class="audio-button">▶️ Intro </button>
+    <button id="audio-toggle" class="audio-button" style="display: none;">
+        <span id="audio-icon">🔊</span>
+    </button>
+</div>
+
+<script>
+    const audio = document.getElementById('background-audio');
+    const playButton = document.getElementById('play-audio');
+    const toggleButton = document.getElementById('audio-toggle');
+    const audioIcon = document.getElementById('audio-icon');
+
+    // Establecer el volumen inicial bajo
+    audio.volume = 0.1; 
+
+    // Reproducir el audio al hacer clic en el botón "Iniciar Audio"
+    playButton.addEventListener('click', () => {
+        audio.play().then(() => {
+            playButton.style.display = 'none'; // Ocultar el botón de iniciar audio
+            toggleButton.style.display = 'inline-block'; // Mostrar el botón de silenciar
+        }).catch((error) => {
+            console.log('Error al reproducir el audio:', error);
+        });
+    });
+
+    // Controlar el botón de silenciar
+    toggleButton.addEventListener('click', () => {
+        if (audio.muted) {
+            audio.muted = false;
+            audioIcon.textContent = '🔊'; // Icono de sonido activado
+        } else {
+            audio.muted = true;
+            audioIcon.textContent = '🔇'; // Icono de sonido silenciado
+        }
+    });
+</script>
 </Layout>

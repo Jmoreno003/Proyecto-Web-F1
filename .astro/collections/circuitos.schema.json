@@ -1,0 +1,45 @@
+{
+  "$ref": "#/definitions/circuitos",
+  "definitions": {
+    "circuitos": {
+      "type": "object",
+      "properties": {
+        "Titulo": {
+          "type": "string"
+        },
+        "Imagen": {
+          "type": "string"
+        },
+        "Ubicación": {
+          "type": "string"
+        },
+        "Longitud": {
+          "type": "string"
+        },
+        "Vueltas": {
+          "type": "string"
+        },
+        "Curvas": {
+          "type": "string"
+        },
+        "Características": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Titulo",
+        "Imagen",
+        "Ubicación",
+        "Longitud",
+        "Vueltas",
+        "Curvas",
+        "Características"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

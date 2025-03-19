@@ -36,17 +36,3 @@ Características: Es uno de los pocos circuitos en el mundo con un diseño en fo
 - **Max Verstappen:** Ganó en 2019 y 2022.
 - **Fernando Alonso:** Ganó en 2006 y 2008.
 
-Estrategia: El circuito suele favorecer una estrategia de una o dos paradas, dependiendo del desgaste de los neumáticos y las condiciones climáticas.
-
-Espectáculo: Suzuka es conocido por su atmósfera única, con fanáticos apasionados y una cultura automovilística profundamente arraigada en Japón.
-
-Ganadores destacados
-Michael Schumacher: Ganó 6 veces en Suzuka (1995, 1997, 2000, 2001, 2002, 2004).
-
-Lewis Hamilton: Ha ganado en múltiples ocasiones (2007, 2014, 2015, 2017, 2018).
-
-Sebastian Vettel: Ganó 4 veces (2009, 2010, 2012, 2013).
-
-Max Verstappen: Ganó en 2019 y 2022.
-
-Fernando Alonso: Ganó en 2006 y 2008.

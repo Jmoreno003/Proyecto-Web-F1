@@ -1,0 +1,122 @@
+/* Estilo global */
+h1 {
+    color: white; /* Color del texto */
+    font-size: 2.5rem; /* Tamaño del título */
+    margin-bottom: 1rem; /* Espaciado inferior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-shadow: 2px 2px 0 black, /* Sombra negra hacia abajo-derecha */
+                 -2px -2px 0 black, /* Sombra negra hacia arriba-izquierda */
+                 -2px 2px 0 black, /* Sombra negra hacia abajo-izquierda */
+                 2px -2px 0 black; /* Sombra negra hacia arriba-derecha */
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: system-ui, sans-serif;
+    background-image: url('https://cdn-1.motorsport.com/images/amp/6l9LjOk0/s1000/lando-norris-mclaren-max-verst.webp'); /* URL de la imagen */
+    background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+    background-position: center 100%; /* Centra horizontalmente y sube la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Fija la imagen al fondo */
+    color: #ffffff; /* Texto blanco */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Contenedor principal */
+main {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto */
+    gap: 2rem; /* Espaciado entre los botones */
+    width: 100%;
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    height: 100%; /* Ocupa toda la altura de la pantalla */
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+    main {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
+    }
+}
+
+@media (min-width: 1024px) {
+    main {
+        grid-template-columns: repeat(4, 1fr); /* Cuatro columnas en pantallas grandes */
+    }
+}
+
+/* Botones */
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem; /* Bordes redondeados */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 1.25rem; /* Tamaño del texto */
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efectos hover */
+a:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+/* Colores de los botones */
+a:nth-child(1) {
+    background: linear-gradient(to right, #3b82f6, #1e40af); /* Azul */
+    color: white;
+}
+
+a:nth-child(2) {
+    background: linear-gradient(to right, #ef4444, #b91c1c); /* Rojo */
+    color: white;
+}
+
+a:nth-child(3) {
+    background: linear-gradient(to right, #10b981, #065f46); /* Verde */
+    color: white;
+}
+
+a:nth-child(4) {
+    background: linear-gradient(to right, #f59e0b, #b45309); /* Amarillo */
+    color: white;
+}
+/* Controles de audio */
+.audio-controls {
+    position: fixed;
+    bottom: 1rem; /* Más cerca del borde inferior */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Espaciado entre los elementos */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    padding: 0.5rem 1rem; /* Espaciado interno */
+    border-radius: 1rem; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+/* Botón de audio */
+.audio-button {
+    background-color: transparent; /* Fondo transparente */
+    color: white;
+    border: none;
+    font-size: 1.5rem; /* Tamaño del icono */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.audio-button:hover {
+    color: #f59e0b; /* Cambiar el color del icono al pasar el cursor */
+}
