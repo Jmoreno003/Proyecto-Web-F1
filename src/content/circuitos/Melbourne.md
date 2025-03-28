@@ -1,6 +1,6 @@
 ---
 Titulo: GP Australia
-Imagen: GPAustralia.webp
+Imagen: ../../public/gp/GPAustralia.webp
 Ubicación: Melbourne, Victoria, Australia.
 Longitud: 5.278 km.
 Vueltas: 58 (para un total de 306.124 km).

@@ -1,6 +1,6 @@
 ---
 Titulo: GP Japón
-Imagen: GPJapon.webp
+Imagen: ../../public/gp/GPJapon.webp
 Ubicación: Suzuka, Prefectura de Mie, Japón.
 Longitud: 5.807 km.
 Vueltas: 53 (para un total de 307.471 km).

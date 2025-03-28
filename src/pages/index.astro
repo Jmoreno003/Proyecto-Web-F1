@@ -21,7 +21,7 @@ import '../styles/index.css';
     </main>
     
 <!-- Audio de fondo -->
-<audio id="background-audio" src="/Opening.mp3" loop></audio>
+<audio id="background-audio" src="/musica/Intro.mp3" preload="auto" loop></audio>
 <div class="audio-controls">
     <button id="play-audio" class="audio-button">▶️ Intro </button>
     <button id="audio-toggle" class="audio-button" style="display: none;">
@@ -30,33 +30,36 @@ import '../styles/index.css';
 </div>
 
 <script>
-    const audio = document.getElementById('background-audio');
-    const playButton = document.getElementById('play-audio');
-    const toggleButton = document.getElementById('audio-toggle');
-    const audioIcon = document.getElementById('audio-icon');
+    // Añadir comprobación de tipos y null checks
+    const audio = document.getElementById('background-audio') as HTMLAudioElement;
+    const playButton = document.getElementById('play-audio') as HTMLButtonElement;
+    const toggleButton = document.getElementById('audio-toggle') as HTMLButtonElement;
+    const audioIcon = document.getElementById('audio-icon') as HTMLSpanElement;
 
-    // Establecer el volumen inicial bajo
-    audio.volume = 0.1; 
+    if (audio && playButton && toggleButton && audioIcon) {
+        // Establecer el volumen inicial bajo
+        audio.volume = 0.1; 
 
-    // Reproducir el audio al hacer clic en el botón "Iniciar Audio"
-    playButton.addEventListener('click', () => {
-        audio.play().then(() => {
-            playButton.style.display = 'none'; // Ocultar el botón de iniciar audio
-            toggleButton.style.display = 'inline-block'; // Mostrar el botón de silenciar
-        }).catch((error) => {
-            console.log('Error al reproducir el audio:', error);
+        // Reproducir el audio al hacer clic en el botón "Iniciar Audio"
+        playButton.addEventListener('click', () => {
+            audio.play().then(() => {
+                playButton.style.display = 'none';
+                toggleButton.style.display = 'inline-block';
+            }).catch((error) => {
+                console.log('Error al reproducir el audio:', error);
+            });
         });
-    });
 
-    // Controlar el botón de silenciar
-    toggleButton.addEventListener('click', () => {
-        if (audio.muted) {
-            audio.muted = false;
-            audioIcon.textContent = '🔊'; // Icono de sonido activado
-        } else {
-            audio.muted = true;
-            audioIcon.textContent = '🔇'; // Icono de sonido silenciado
-        }
-    });
+        // Controlar el botón de silenciar
+        toggleButton.addEventListener('click', () => {
+            if (audio.muted) {
+                audio.muted = false;
+                audioIcon.textContent = '🔊';
+            } else {
+                audio.muted = true;
+                audioIcon.textContent = '🔇';
+            }
+        });
+    }
 </script>
 </Layout>
