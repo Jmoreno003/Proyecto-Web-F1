@@ -35,5 +35,5 @@ Características: Spa-Francorchamps es uno de los circuitos más legendarios y d
 ## Curiosidades
 - **Eau Rouge y Raidillon:** Estas curvas icónicas son algunas de las más famosas y desafiantes del mundo del automovilismo.
 - **Longitud:** Es el circuito más largo del calendario de la Fórmula 1.
-- **Historia:** Spa-Francorchamps es uno de los circuitos más antiguos y prestigiosos del mundo, con una rica historia en el automovilismo.
+- **Historia:** Spa-Francorchamps es uno de los circuitos más antiguos y prestigiosos del mundo.
 - **Clima impredecible:** Es común que diferentes partes del circuito tengan condiciones climáticas completamente distintas.
