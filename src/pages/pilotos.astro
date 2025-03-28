@@ -9,14 +9,42 @@ import '../styles/pilotos.css';
     <div class="title-container">
         <h1>Pilotos</h1>
     </div>
-    <div class="buttons-container">
+
+    <!-- Botón de menú -->
+    <button id="menu-icon">☰</button>
+
+    <!-- Contenedor de botones -->
+    <div id="menu-items" class="buttons-container">
         <a href="/circuitos" class="menu-button">Circuitos</a>
         <a href="/pilotos" class="menu-button">Pilotos</a>
         <a href="/escuderias" class="menu-button">Escuderías</a>
         <a href="/puntos" class="menu-button">Puntos</a>
     </div>
+
     <main>
         <!-- Aquí puedes agregar el contenido de la página de pilotos -->
         <p>Contenido de la página de pilotos...</p>
     </main>
+
+    <script>
+        // Inicializar el comportamiento del menú
+        function initializeMenu() {
+            const menuIcon = document.getElementById('menu-icon');
+            const menuItems = document.getElementById('menu-items');
+
+            if (menuIcon && menuItems) {
+                menuIcon.addEventListener('click', () => {
+                    // Alternar la visibilidad del menú
+                    if (menuItems.style.display === 'flex') {
+                        menuItems.style.display = 'none';
+                    } else {
+                        menuItems.style.display = 'flex';
+                    }
+                });
+            }
+        }
+
+        // Ejecutar la función al cargar la página
+        document.addEventListener('DOMContentLoaded', initializeMenu);
+    </script>
 </Layout>

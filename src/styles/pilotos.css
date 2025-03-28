@@ -27,25 +27,13 @@ h1 {
 
 /* Contenedor de botones */
 .buttons-container {
-    display: grid;
-    grid-template-columns: 1fr; /* Una columna por defecto */
+    display: flex; /* Usar flexbox para controlar la dirección */
+    flex-direction: column; /* Por defecto, apilados verticalmente */
     gap: 1rem; /* Espaciado entre los botones */
     width: 100%;
     max-width: 600px; /* Ancho máximo del contenedor */
     padding: 0 1rem;
     box-sizing: border-box;
-}
-
-@media (min-width: 640px) {
-    .buttons-container {
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
-    }
-}
-
-@media (min-width: 1024px) {
-    .buttons-container {
-        grid-template-columns: repeat(4, 1fr); /* Cuatro columnas en pantallas grandes */
-    }
 }
 
 /* Botones */
@@ -87,4 +75,63 @@ h1 {
 
 .menu-button:nth-child(4) {
     background: linear-gradient(to right, #f59e0b, #b45309); /* Amarillo */
+}
+
+/* Botón de menú */
+#menu-icon {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: #1e40af; /* Azul oscuro */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+}
+
+/* Contenedor de botones oculto por defecto en pantallas pequeñas */
+#menu-items {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Mostrar el botón de menú en pantallas pequeñas */
+@media (max-width: 639px) {
+    #menu-icon {
+        display: flex;
+    }
+
+    .buttons-container {
+        display: none; /* Ocultar botones por defecto */
+    }
+}
+
+/* Mostrar botones en pantallas grandes */
+@media (min-width: 640px) {
+    #menu-items {
+        display: flex; /* Asegura que los botones sean visibles */
+        flex-direction: row; /* Cambiar a disposición horizontal */
+        justify-content: space-between; /* Espaciado uniforme entre los botones */
+        align-items: center; /* Alinear verticalmente */
+    }
+
+    #menu-icon {
+        display: none; /* Ocultar el botón de menú */
+    }
+}
+
+/* A partir de 1024px, los botones se distribuyen en columnas */
+@media (min-width: 1024px) {
+    .buttons-container {
+        grid-template-columns: none; /* Eliminar configuración previa */
+    }
 }
