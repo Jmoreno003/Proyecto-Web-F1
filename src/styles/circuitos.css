@@ -1,22 +1,31 @@
+/* Fondo general */
+body {
+    color: #ffffff; /* Texto blanco */
+    font-family: 'Roboto', sans-serif; /* Fuente moderna */
+    margin: 0;
+    padding: 0;
+}
+
 /* Título principal */
 h1 {
-    font-size: 2.5rem; /* Tamaño del título */
-    margin-bottom: 1rem; /* Espaciado inferior */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 3rem; /* Tamaño del título más grande */
+    margin-bottom: 2rem; /* Espaciado inferior */
+    color: #e10600; /* Rojo característico de la F1 */
     text-align: center;
+    text-transform: uppercase; /* Texto en mayúsculas */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para el texto */
+    font-weight: bold;
 }
 
 /* Contenedor principal */
 .circuitos-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta automáticamente las columnas */
-    gap: 1.5rem; /* Espaciado entre las tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta automáticamente las columnas */
+    gap: 2rem; /* Espaciado entre las tarjetas */
     width: 100%;
     max-width: 1200px; /* Ancho máximo del contenedor */
     margin: 0 auto; /* Centra el contenedor */
-    padding: 1rem;
+    padding: 2rem;
     box-sizing: border-box;
 }
 
@@ -25,30 +34,31 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #2d3748; /* Fondo gris oscuro */
-    border-radius: 0.5rem; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    padding: 1rem;
+    background: linear-gradient(145deg, #3b4252, #2d3748); /* Fondo con degradado */
+    border-radius: 1rem; /* Bordes redondeados */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Sombra más suave */
+    padding: 1.5rem;
     text-decoration: none; /* Sin subrayado */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .circuito-card:hover {
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+    transform: translateY(-10px); /* Eleva la tarjeta al pasar el cursor */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
 }
 
 /* Contenedor de la imagen */
 .circuito-image-container {
     width: 100%;
-    height: 10rem; /* Altura fija de la caja de la imagen */
+    height: 12rem; /* Altura fija de la caja de la imagen */
     background-color: #4a5568; /* Fondo gris más claro */
     border-radius: 0.5rem; /* Bordes redondeados */
     overflow: hidden; /* Asegura que la imagen no se salga de la caja */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0.5rem; /* Espaciado entre la imagen y el título */
+    margin-bottom: 1rem; /* Espaciado entre la imagen y el título */
+    border: 2px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
 }
 
 /* Imagen */
@@ -66,9 +76,45 @@ h1 {
 
 /* Título */
 .circuito-title {
-    font-size: 1rem; /* Tamaño del texto */
+    font-size: 1.2rem; /* Tamaño del texto más grande */
     font-weight: bold;
     color: #ffffff; /* Texto blanco */
     text-align: center;
     margin: 0;
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .circuitos-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta las columnas para pantallas más pequeñas */
+        gap: 1.5rem; /* Reduce el espacio entre las tarjetas */
+    }
+
+    h1 {
+        font-size: 2.5rem; /* Reduce el tamaño del título */
+    }
+}
+
+@media (max-width: 480px) {
+    .circuitos-container {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas muy pequeñas */
+    }
+
+    h1 {
+        font-size: 2rem; /* Reduce aún más el tamaño del título */
+    }
+
+    .circuito-card {
+        padding: 1rem; /* Reduce el padding de las tarjetas */
+    }
+
+    .circuito-image-container {
+        height: 10rem; /* Reduce la altura de la imagen */
+    }
+
+    .circuito-title {
+        font-size: 1rem; /* Reduce el tamaño del texto del título */
+    }
 }
