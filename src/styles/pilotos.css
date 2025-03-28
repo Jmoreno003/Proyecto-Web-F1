@@ -1,0 +1,90 @@
+/* Fondo general */
+body {
+    background-color: #2d3748; /* Fondo gris oscuro */
+    color: #ffffff; /* Texto blanco */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
+}
+
+/* Contenedor del título */
+.title-container {
+    text-align: center;
+    margin-top: 1rem; /* Espaciado superior */
+}
+
+/* Título principal */
+h1 {
+    font-size: 2.5rem; /* Tamaño del título */
+    margin-bottom: 1.5rem; /* Espaciado inferior */
+}
+
+/* Contenedor de botones */
+.buttons-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto */
+    gap: 1rem; /* Espaciado entre los botones */
+    width: 100%;
+    max-width: 600px; /* Ancho máximo del contenedor */
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+    .buttons-container {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas */
+    }
+}
+
+@media (min-width: 1024px) {
+    .buttons-container {
+        grid-template-columns: repeat(4, 1fr); /* Cuatro columnas en pantallas grandes */
+    }
+}
+
+/* Botones */
+.menu-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem; /* Bordes redondeados */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 1rem; /* Tamaño del texto */
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white; /* Texto blanco */
+    width: 100%;
+    text-align: center;
+}
+
+/* Efectos hover */
+.menu-button:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+/* Colores de los botones */
+.menu-button:nth-child(1) {
+    background: linear-gradient(to right, #3b82f6, #1e40af); /* Azul */
+}
+
+.menu-button:nth-child(2) {
+    background: linear-gradient(to right, #ef4444, #b91c1c); /* Rojo */
+}
+
+.menu-button:nth-child(3) {
+    background: linear-gradient(to right, #10b981, #065f46); /* Verde */
+}
+
+.menu-button:nth-child(4) {
+    background: linear-gradient(to right, #f59e0b, #b45309); /* Amarillo */
+}
