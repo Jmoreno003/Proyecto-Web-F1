@@ -2,28 +2,46 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import '../styles/pilotos.css';
-
+import { PILOTOS } from '../consts/pilotos';
+import background from '../assets/fondopilotos.jpg';
 ---
 
 <Layout title="F1 Time 🏎️">
-    <div class="title-container">
-        <h1>Pilotos</h1>
-    </div>
+    <img id="background" src={background.src} alt="" fetchpriority="high" />
+    <header class="header">
+        <div class="title-container">
+            <h1>Pilotos</h1>
+        </div>
 
-    <!-- Botón de menú -->
-    <button id="menu-icon">☰</button>
+        <!-- Botón de menú -->
+        <button id="menu-icon">☰</button>
 
-    <!-- Contenedor de botones -->
-    <div id="menu-items" class="buttons-container">
-        <a href="/circuitos" class="menu-button">Circuitos</a>
-        <a href="/pilotos" class="menu-button">Pilotos</a>
-        <a href="/escuderias" class="menu-button">Escuderías</a>
-        <a href="/puntos" class="menu-button">Puntos</a>
-    </div>
-
+        <!-- Contenedor de botones -->
+        <div id="menu-items" class="buttons-container">
+            <a href="/circuitos" class="menu-button">Circuitos</a>
+            <a href="/pilotos" class="menu-button">Pilotos</a>
+            <a href="/escuderias" class="menu-button">Escuderías</a>
+            <a href="/puntos" class="menu-button">Puntos</a>
+        </div>
+    </header>
     <main>
-        <!-- Aquí puedes agregar el contenido de la página de pilotos -->
-        <p>Contenido de la página de pilotos...</p>
+
+        <div class="pilotos">
+            {
+                PILOTOS.map(({id, name}) => (
+                    <a
+                        href={`/pilotos/${id}`}
+                        class="piloto-card"
+                    >
+                        <img
+                            src={`/cards/${id}.avif`}
+                            alt={name}
+                            class="piloto-image"
+                        />
+                    </a>
+                ))
+            }
+        </div>
     </main>
 
     <script>

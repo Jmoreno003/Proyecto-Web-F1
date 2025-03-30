@@ -1,6 +1,25 @@
+/* Fondo responsivo */
+#background {
+    position: fixed; /* Fijo para que siempre esté detrás */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -9999; /* Asegura que esté detrás de todo */
+    background-size: cover; /* Ajusta el tamaño del fondo */
+    background-position: center; /* Centra el fondo */
+    background-repeat: no-repeat; /* Evita que se repita */
+    background-attachment: fixed; /* Fija el fondo al viewport */
+}
+
+/* Asegura que los elementos estén por encima del fondo */
+body, header, .title-container, .buttons-container, .pilotos {
+    position: relative; /* Crea un nuevo contexto de apilamiento */
+    z-index: 1; /* Asegura que estén por encima del fondo */
+}
+
 /* Fondo general */
-body {
-    background-color: #2d3748; /* Fondo gris oscuro */
+header {
     color: #ffffff; /* Texto blanco */
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,7 +29,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
 }
 
 /* Contenedor del título */
@@ -34,6 +52,7 @@ h1 {
     max-width: 600px; /* Ancho máximo del contenedor */
     padding: 0 1rem;
     box-sizing: border-box;
+    align-items: center; /* Centrar los botones */
 }
 
 /* Botones */
@@ -54,7 +73,7 @@ h1 {
     text-align: center;
 }
 
-/* Efectos hover */
+/* Efectos hover en botones */
 .menu-button:hover {
     transform: scale(1.05); /* Aumenta ligeramente el tamaño */
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
@@ -97,14 +116,55 @@ h1 {
     z-index: 1000; /* Asegura que esté encima de otros elementos */
 }
 
-/* Contenedor de botones oculto por defecto en pantallas pequeñas */
-#menu-items {
-    display: none;
-    flex-direction: column;
-    gap: 1rem;
+/* Contenedor de pilotos */
+.pilotos {
+    display: grid; /* Usar grid para organizar las cartas */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajuste automático de columnas */
+    gap: 1rem; /* Separación entre las cartas */
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    justify-content: start; /* Alinear las cartas al lado izquierdo */
 }
 
-/* Mostrar el botón de menú en pantallas pequeñas */
+/* Carta de piloto */
+.piloto-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a202c; /* Fondo gris oscuro */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    overflow: hidden; /* Asegura que el contenido no se salga de los bordes */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación */
+    text-decoration: none; /* Eliminar subrayado */
+    color: white; /* Texto blanco */
+    width: 100%;
+    max-width: 150px; /* Ancho máximo de la carta */
+    height: 150px; /* Altura fija para hacerlas más grandes */
+}
+
+/* Imagen dentro de la carta */
+.piloto-card img {
+    width: 100%; /* Imagen ocupa todo el ancho */
+    height: 100%; /* Imagen ocupa toda la altura */
+    object-fit: cover; /* Ajustar la imagen para que ocupe todo el recuadro */
+    transition: transform 0.3s ease; /* Animación al pasar el cursor */
+}
+
+/* Efecto hover en la carta */
+.piloto-card:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+/* Efecto hover en la imagen */
+.piloto-card:hover img {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño de la imagen */
+}
+
+/* Media Queries para responsividad */
 @media (max-width: 639px) {
     #menu-icon {
         display: flex;
@@ -113,10 +173,19 @@ h1 {
     .buttons-container {
         display: none; /* Ocultar botones por defecto */
     }
+
+    .pilotos {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Cartas más pequeñas en pantallas pequeñas */
+        gap: 0.5rem; /* Menor separación entre cartas */
+    }
 }
 
-/* Mostrar botones en pantallas grandes */
 @media (min-width: 640px) {
+    .pilotos {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas medianas */
+        gap: 1rem; /* Separación entre cartas */
+    }
+
     #menu-items {
         display: flex; /* Asegura que los botones sean visibles */
         flex-direction: row; /* Cambiar a disposición horizontal */
@@ -129,9 +198,12 @@ h1 {
     }
 }
 
-/* A partir de 1024px, los botones se distribuyen en columnas */
 @media (min-width: 1024px) {
-    .buttons-container {
-        grid-template-columns: none; /* Eliminar configuración previa */
+    .pilotos {
+        grid-template-columns: repeat(5, 1fr); /* 5 columnas en pantallas grandes */
+        gap: 1rem; /* Separación uniforme */
+        width: auto; /* Permitir que la caja ocupe solo lo necesario */
+        max-width: 750px; /* Ajusta el ancho según lo que necesites */
+        margin: 2%; /* Asegurar que inicie desde la izquierda */
     }
 }
