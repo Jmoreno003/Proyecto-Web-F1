@@ -1,6 +1,6 @@
 ---
 Titulo: GP USA
-Imagen: ../../public/gp/GPMiami.webp
+Imagen: /circuit/miami.png
 Ubicación: Miami, Florida, Estados Unidos.
 Longitud: 5.412 km.
 Vueltas: 57 (para un total de 308.326 km).

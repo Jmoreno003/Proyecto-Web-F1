@@ -1,6 +1,6 @@
 ---
 Titulo: GP Canadá
-Imagen: ../../public/gp/GPMontreal.webp
+Imagen: /circuit/montreal.png
 Ubicación: Montreal, Canadá.
 Longitud: 4.361 km.
 Vueltas: 70 (para un total de 305.27 km).

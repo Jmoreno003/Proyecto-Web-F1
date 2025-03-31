@@ -1,6 +1,6 @@
 ---
 Titulo: GP Saudi Arabia
-Imagen: ../../public/gp/GPJeddah.webp
+Imagen: /circuit/jeddah.png
 Ubicación: Jeddah, Arabia Saudita.
 Longitud: 6.174 km.
 Vueltas: 50 (para un total de 308.450 km).

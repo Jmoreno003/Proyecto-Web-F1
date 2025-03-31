@@ -1,21 +1,22 @@
 ---
+// filepath: c:\Users\byjos\Documents\Cursos\Astro5\Web-F1\src\pages\pilotos\[idpilotos].astro
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import background from '../../assets/fondopilotos.jpg';
 import '../../styles/idpilotos.css';
+
+export const prerender = true; // Habilitar la generación estática de las páginas dinámicas
 
 const pilotos = await getCollection('pilotos');
 const { idpilotos } = Astro.params;
 
 const piloto = pilotos.find((p) => p.id === idpilotos);
 
-
 if (!piloto) {
     throw new Error(`Piloto con id ${idpilotos} no encontrado`);
 }
 
-const { imgbig,imgcard, nombre, apellido, nacionalidad, edad, altura, peso, equipo, puntos, titulos } = piloto.data;
-
+const { imgbig, imgcard, nombre, apellido, nacionalidad, edad, altura, peso, equipo, puntos, titulos } = piloto.data;
 
 export async function getStaticPaths() {
     const pilotos = await getCollection('pilotos');
@@ -24,7 +25,6 @@ export async function getStaticPaths() {
         params: { idpilotos: p.id },
     }));
 }
-
 ---
 
 <Layout title={`Piloto`}>

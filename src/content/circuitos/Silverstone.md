@@ -1,6 +1,6 @@
 ---
 Titulo: GP Gran Bretaña
-Imagen: ../../public/gp/GPSilverstone.webp
+Imagen: /circuit/silverstone.png
 Ubicación: Silverstone, Reino Unido.
 Longitud: 5.891 km.
 Vueltas: 52 (para un total de 306.198 km).

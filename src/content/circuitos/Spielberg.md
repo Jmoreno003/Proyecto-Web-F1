@@ -1,6 +1,6 @@
 ---
 Titulo: GP Austria
-Imagen: ../../public/gp/GPAustria.webp
+Imagen: /circuit/austria.png
 Ubicación: Spielberg, Austria.
 Longitud: 4.318 km.
 Vueltas: 71 (para un total de 306.452 km).

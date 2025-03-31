@@ -1,6 +1,6 @@
 ---
 Titulo: GP China
-Imagen: ../../public/gp/GPChina.webp
+Imagen: /circuit/china.png
 Ubicación: Jiading, Shanghái, China.
 Longitud: 5.451 km.
 Vueltas: 56 (para un total de 305.066 km).

@@ -1,6 +1,6 @@
 ---
 Titulo: GP Mónaco
-Imagen: ../../public/gp/GPMonaco.webp
+Imagen: /circuit/monaco.png
 Ubicación: Montecarlo, Mónaco.
 Longitud: 3.337 km.
 Vueltas: 78 (para un total de 260.286 km).

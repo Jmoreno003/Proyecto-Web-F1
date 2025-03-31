@@ -1,6 +1,6 @@
 ---
 Titulo: GP Emilia-Romaña
-Imagen: ../../public/gp/GPImola.webp
+Imagen: /circuit/imola.png
 Ubicación: Imola, Emilia-Romaña, Italia.
 Longitud: 4.909 km.
 Vueltas: 63 (para un total de 309.049 km).

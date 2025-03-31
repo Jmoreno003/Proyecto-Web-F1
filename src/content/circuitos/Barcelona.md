@@ -1,6 +1,6 @@
 ---
 Titulo: GP España
-Imagen: ../../public/gp/GPBarcelona.webp
+Imagen: /circuit/barcelona.png
 Ubicación: Montmeló, Barcelona, España.
 Longitud: 4.675 km.
 Vueltas: 66 (para un total de 308.424 km).

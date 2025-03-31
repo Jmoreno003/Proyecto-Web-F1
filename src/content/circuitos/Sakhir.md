@@ -1,6 +1,6 @@
 ---
 Titulo: GP Bahrein
-Imagen: ../../public/gp/GPBahrein.webp
+Imagen: /circuit/bahrein.png
 Ubicación: Sakhir, Baréin.
 Longitud: 5.412 km.
 Vueltas: 57 (para un total de 308.238 km).

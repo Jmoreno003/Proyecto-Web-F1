@@ -1,6 +1,6 @@
 ---
 Titulo: GP Bélgica
-Imagen: ../../public/gp/GPSPA.webp
+Imagen: /circuit/spa.png
 Ubicación: Spa-Francorchamps, Bélgica.
 Longitud: 7.004 km.
 Vueltas: 44 (para un total de 308.052 km).

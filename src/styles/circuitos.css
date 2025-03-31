@@ -1,120 +1,277 @@
+/* Fondo responsivo */
+#background {
+    position: fixed; /* Fijo para que siempre esté detrás */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -9999; /* Asegura que esté detrás de todo */
+    background-size: cover; /* Ajusta el tamaño del fondo */
+    background-position: center; /* Centra el fondo */
+    background-repeat: no-repeat; /* Evita que se repita */
+    background-attachment: fixed; /* Fija el fondo al viewport */
+}
+
+/* Asegura que los elementos estén por encima del fondo */
+body, header, .title-container, .buttons-container, .circuitos {
+    position: relative; /* Crea un nuevo contexto de apilamiento */
+    z-index: 1; /* Asegura que estén por encima del fondo */
+}
+
 /* Fondo general */
-body {
+header {
     color: #ffffff; /* Texto blanco */
-    font-family: 'Roboto', sans-serif; /* Fuente moderna */
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Contenedor del título */
+.title-container {
+    text-align: center;
+    margin-top: 1rem; /* Espaciado superior */
 }
 
 /* Título principal */
 h1 {
-    font-size: 3rem; /* Tamaño del título más grande */
-    margin-bottom: 2rem; /* Espaciado inferior */
-    color: #e10600; /* Rojo característico de la F1 */
-    text-align: center;
-    text-transform: uppercase; /* Texto en mayúsculas */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para el texto */
-    font-weight: bold;
+    font-size: 2.5rem; /* Tamaño del título */
+    margin-bottom: 1.5rem; /* Espaciado inferior */
 }
 
-/* Contenedor principal */
-.circuitos-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta automáticamente las columnas */
-    gap: 2rem; /* Espaciado entre las tarjetas */
+/* Contenedor de botones */
+.buttons-container {
+    display: flex; /* Usar flexbox para controlar la dirección */
+    flex-direction: column; /* Por defecto, apilados verticalmente */
+    gap: 1rem; /* Espaciado entre los botones */
     width: 100%;
-    max-width: 1200px; /* Ancho máximo del contenedor */
-    margin: 0 auto; /* Centra el contenedor */
-    padding: 2rem;
+    max-width: 600px; /* Ancho máximo del contenedor */
+    padding: 0 1rem;
     box-sizing: border-box;
+    align-items: center; /* Centrar los botones */
 }
 
-/* Tarjetas de circuito */
+/* Botones */
+.menu-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem; /* Bordes redondeados */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 1rem; /* Tamaño del texto */
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white; /* Texto blanco */
+    width: 100%;
+    text-align: center;
+}
+
+/* Efectos hover en botones */
+.menu-button:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+/* Colores de los botones */
+.menu-button:nth-child(1) {
+    background: linear-gradient(to right, #3b82f6, #1e40af); /* Azul */
+}
+
+.menu-button:nth-child(2) {
+    background: linear-gradient(to right, #ef4444, #b91c1c); /* Rojo */
+}
+
+.menu-button:nth-child(3) {
+    background: linear-gradient(to right, #10b981, #065f46); /* Verde */
+}
+
+.menu-button:nth-child(4) {
+    background: linear-gradient(to right, #f59e0b, #b45309); /* Amarillo */
+}
+
+/* Botón de menú */
+#menu-icon {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: #1e40af; /* Azul oscuro */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+}
+
+/* Contenedor de circuitos */
+.circuitos {
+    display: grid; /* Usar grid para organizar las cartas */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajuste automático de columnas */
+    gap: 1rem; /* Separación entre las cartas */
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    justify-content: start; /* Alinear las cartas al lado izquierdo */
+}
+
+/* Carta de circuito */
 .circuito-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(145deg, #3b4252, #2d3748); /* Fondo con degradado */
-    border-radius: 1rem; /* Bordes redondeados */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Sombra más suave */
-    padding: 1.5rem;
-    text-decoration: none; /* Sin subrayado */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.circuito-card:hover {
-    transform: translateY(-10px); /* Eleva la tarjeta al pasar el cursor */
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
-}
-
-/* Contenedor de la imagen */
-.circuito-image-container {
-    width: 100%;
-    height: 12rem; /* Altura fija de la caja de la imagen */
-    background-color: #4a5568; /* Fondo gris más claro */
+    justify-content: center;
+    background-color: #1a202c; /* Fondo gris oscuro */
     border-radius: 0.5rem; /* Bordes redondeados */
-    overflow: hidden; /* Asegura que la imagen no se salga de la caja */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    position: relative; /* Necesario para posicionar bien el nombre */
+    overflow: hidden; /* Asegura que el contenido no se salga de los bordes */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación */
+    text-decoration: none; /* Eliminar subrayado */
+    color: white; /* Texto blanco */
+    width: 100%;
+    max-width: 150px; /* Ancho máximo de la carta */
+    height: 150px; /* Altura fija para hacerlas más grandes */
+}
+
+/* Imagen dentro de la tarjeta */
+.circuito-card img {
+    width: 100%; /* Imagen ocupa todo el ancho del contenedor */
+    height: 150px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Ajusta la imagen para que ocupe todo el recuadro sin deformarse */
+    transition: transform 0.3s ease; /* Animación al pasar el cursor */
+}
+
+/* Efecto hover en la carta */
+.circuito-card:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+/* Efecto hover en la imagen */
+.circuito-card:hover img {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño de la imagen */
+}
+
+.circuitos-mostrar {
+    position: absolute;
+    right: 14%; /* Ajusta la distancia de la derecha */
+    top: 61%;
+    transform: translateY(-50%); /* Centra los circuitos grandes verticalmente */
+    width: 34%; /* Ajusta el tamaño del contenedor */
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circuito-big-card {
+    position: absolute;
+    transition: opacity 0.5s ease-in-out;
+    width: 100%;
+    max-width: 100%;
+    z-index: 1;
+    display: none;
+    overflow: hidden;
+}
+
+/* Imagen destacada dentro de la tarjeta grande */
+.circuito-big-card img {
+    width: 100%; /* Imagen ocupa todo el ancho del contenedor */
+    height: 300px; /* Altura fija para las imágenes destacadas */
+    object-fit: cover; /* Ajusta la imagen para que ocupe todo el recuadro sin deformarse */
+}
+
+.circuito-big-card.active {
+    display: block; /* Solo el circuito seleccionado se muestra */
+}
+
+.circuito-big-card:not(.hidden) {
+    display: block; /* Mostrar cuando la clase 'hidden' se remueve */
+}
+
+.circuito-big-card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Ajustar la imagen sin deformar */
+}
+
+.circuito-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    background: linear-gradient(to top, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1)); /* Degradado estilo F1 */
+    color: white;
+    text-align: center;
+    padding: 0.3rem 0; /* Ajusta el padding */
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1rem; /* Espaciado entre la imagen y el título */
-    border: 2px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
-}
-
-/* Imagen */
-.circuito-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajusta la imagen al contenedor */
-    object-position: center; /* Centra la imagen dentro del contenedor */
-    transition: transform 0.3s ease; /* Transición suave para el hover */
-}
-
-.circuito-image-container:hover .circuito-image {
-    transform: scale(1.1); /* Efecto de zoom al pasar el cursor */
-}
-
-/* Título */
-.circuito-title {
-    font-size: 1.2rem; /* Tamaño del texto más grande */
+    font-size: 1rem; /* Texto pequeño */
+    line-height: 1;
     font-weight: bold;
-    color: #ffffff; /* Texto blanco */
-    text-align: center;
-    margin: 0;
-    text-transform: uppercase; /* Texto en mayúsculas */
-    letter-spacing: 1px; /* Espaciado entre letras */
+    letter-spacing: 1rem; /* Espaciado ligero para mejorar la lectura */
+    text-transform: uppercase; /* Estilo pro */
+    border-top-left-radius: 1%;
+    border-top-right-radius: 1%;
+    z-index: 2; /* Asegura que el texto esté por encima de la imagen */
 }
 
-/* Responsividad */
-@media (max-width: 768px) {
-    .circuitos-container {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta las columnas para pantallas más pequeñas */
-        gap: 1.5rem; /* Reduce el espacio entre las tarjetas */
+/* Media Queries para responsividad */
+@media (max-width: 639px) {
+    #menu-icon {
+        display: flex;
     }
 
-    h1 {
-        font-size: 2.5rem; /* Reduce el tamaño del título */
+    .buttons-container {
+        display: none; /* Ocultar botones por defecto */
+    }
+
+    .circuitos {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Cartas más pequeñas en pantallas pequeñas */
+        gap: 0.5rem; /* Menor separación entre cartas */
     }
 }
 
-@media (max-width: 480px) {
-    .circuitos-container {
-        grid-template-columns: 1fr; /* Una sola columna en pantallas muy pequeñas */
+@media (min-width: 640px) {
+    .circuitos {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas medianas */
+        gap: 1rem; /* Separación entre cartas */
     }
 
-    h1 {
-        font-size: 2rem; /* Reduce aún más el tamaño del título */
+    #menu-items {
+        display: flex; /* Asegura que los botones sean visibles */
+        flex-direction: row; /* Cambiar a disposición horizontal */
+        justify-content: space-between; /* Espaciado uniforme entre los botones */
+        align-items: center; /* Alinear verticalmente */
     }
 
-    .circuito-card {
-        padding: 1rem; /* Reduce el padding de las tarjetas */
+    #menu-icon {
+        display: none; /* Ocultar el botón de menú */
     }
+}
 
-    .circuito-image-container {
-        height: 10rem; /* Reduce la altura de la imagen */
-    }
-
-    .circuito-title {
-        font-size: 1rem; /* Reduce el tamaño del texto del título */
+@media (min-width: 1024px) {
+    .circuitos {
+        grid-template-columns: repeat(5, 1fr); /* 5 columnas en pantallas grandes */
+        gap: 1rem; /* Separación uniforme */
+        width: auto; /* Permitir que la caja ocupe solo lo necesario */
+        max-width: 750px; /* Ajusta el ancho según lo que necesites */
+        margin: 2%; /* Asegurar que inicie desde la izquierda */
     }
 }

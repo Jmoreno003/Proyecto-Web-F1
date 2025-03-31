@@ -1,25 +1,148 @@
 ---
+// filepath: c:\Users\byjos\Documents\Cursos\Astro5\Web-F1\src\pages\circuitos.astro
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import '../styles/circuitos.css';
+import background from '../assets/fondopilotos.jpg';
 
 const circuitos = await getCollection('circuitos');
 ---
 
 <Layout title="F1 Time 🏎️">
-    <h1>Circuitos</h1>
-    <main class="circuitos-container">
-        {circuitos.map((circuito) => {
-            const { slug, data } = circuito;
-            const { Titulo, Imagen } = data;
-            return (
-                <a href={`/circuitos/${slug}`} class="circuito-card">
-                    <div class="circuito-image-container">
-                        <img src={`/${Imagen}`} alt={`Imagen de ${Titulo}`} class="circuito-image" />
-                    </div>
-                    <h3 class="circuito-title">{Titulo}</h3>
-                </a>
-            );
-        })}
+    <img id="background" src={background.src} alt="" fetchpriority="high" />
+    <header class="header">
+        <div class="title-container">
+            <h1>Circuitos</h1>
+        </div>
+
+        <!-- Botón de menú -->
+        <button id="menu-icon">☰</button>
+
+        <!-- Contenedor de botones -->
+        <div id="menu-items" class="buttons-container">
+            <a href="/circuitos" class="menu-button">Circuitos</a>
+            <a href="/pilotos" class="menu-button">Pilotos</a>
+            <a href="/escuderias" class="menu-button">Escuderías</a>
+            <a href="/puntos" class="menu-button">Puntos</a>
+        </div>
+    </header>
+    <main>
+        <div class="circuitos">
+            {
+                circuitos.map(circuito => {
+                    const { slug, data } = circuito;
+                    const { Imagen, Titulo } = data;
+
+                    return (
+                        <a href={`/circuitos/${slug}`} class="circuito-card" data-id={slug}>
+                            <img
+                                src={Imagen}
+                                alt={Titulo}
+                                
+                            />
+                        </a>
+                    );
+                })
+            }
+        </div>
+        
+        <!-- Circuitos destacados -->
+        <div class="circuitos-mostrar">
+            {
+                circuitos.map(circuito => {
+                    const { slug, data } = circuito;
+                    const { Imagen, Titulo } = data;
+
+                    return (
+                        <a href={`/circuito/${slug}`} class="circuito-big-card" data-id={`circuito-big-${slug}`}>
+                            <img 
+                                src={`/circuit${Imagen}`}  
+                                alt={`${Titulo}`} 
+                                loading="lazy" 
+                                class="circuito-image" 
+                                decoding="async" 
+                            />
+                            <div class="circuito-info">
+                                <h2 class="circuito-title">{Titulo}</h2>
+                            </div>
+                        </a>
+                    );
+                })
+            }
+        </div>
     </main>
+
+    <script>
+        // Forzar recarga completa al entrar en la página
+        const navigationEntries = performance.getEntriesByType("navigation");
+        if (navigationEntries.length > 0 && navigationEntries[0]?.type === "back_forward") {
+            window.location.reload();
+        }
+    
+        // Inicializar el comportamiento del menú
+        function initializeMenu() {
+            const menuIcon = document.getElementById('menu-icon');
+            const menuItems = document.getElementById('menu-items');
+    
+            if (menuIcon && menuItems) {
+                menuIcon.addEventListener('click', () => {
+                    // Alternar la visibilidad del menú
+                    if (menuItems.style.display === 'flex') {
+                        menuItems.style.display = 'none';
+                    } else {
+                        menuItems.style.display = 'flex';
+                    }
+                });
+            }
+        }
+    
+        // Ejecutar la función al cargar la página
+        document.addEventListener('DOMContentLoaded', initializeMenu);
+    
+        // Inicializar el comportamiento de los circuitos
+        function initializeCircuitos() {
+            const circuitoCards = document.querySelectorAll('.circuito-card');
+            const bigCircuitos = document.querySelectorAll('.circuito-big-card');
+    
+            // Asegurar que todos los circuitos grandes estén ocultos al inicio
+            bigCircuitos.forEach(circuito => circuito.classList.add('hidden'));
+    
+            // Declarar la variable currentCircuitoId
+            let currentCircuitoId: string| null = null;
+    
+            circuitoCards.forEach((singleCircuitoCard) => {
+                singleCircuitoCard.addEventListener('mouseenter', () => {
+                    const id = singleCircuitoCard.getAttribute('data-id');
+    
+                    if (id) {
+                        const event = new CustomEvent("circuito-hovered", { detail: { id } });
+                        document.dispatchEvent(event);
+                    }
+                });
+            });
+    
+            document.addEventListener("circuito-hovered", (event) => {
+                const customEvent = event as CustomEvent<{ id: string }>;
+                const id = customEvent.detail.id;
+    
+                if (currentCircuitoId === id) return;
+    
+                // Ocultar todos los circuitos antes de mostrar el nuevo
+                bigCircuitos.forEach(circuito => circuito.classList.add('hidden'));
+    
+                // Mostrar solo el circuito correspondiente
+                document.querySelector(`[data-id="circuito-big-${id}"]`)?.classList.remove('hidden');
+    
+                currentCircuitoId = id;
+            });
+    
+            // Reseteamos el estado al volver atrás
+            window.addEventListener("popstate", () => {
+                bigCircuitos.forEach(circuito => circuito.classList.add('hidden'));
+                currentCircuitoId = null;
+            });
+        }
+    
+        document.addEventListener('DOMContentLoaded', initializeCircuitos);
+    </script>
 </Layout>
