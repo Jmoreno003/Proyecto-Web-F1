@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import background from '../../assets/fondopilotos.jpg';
+import '../../styles/idpilotos.css';
+
+const pilotos = await getCollection('pilotos');
+const { idpilotos } = Astro.params;
+
+const piloto = pilotos.find((p) => p.id === idpilotos);
+
+
+if (!piloto) {
+    throw new Error(`Piloto con id ${idpilotos} no encontrado`);
+}
+
+const { imgbig,imgcard, nombre, apellido, nacionalidad, edad, altura, peso, equipo, puntos, titulos } = piloto.data;
+
+
+export async function getStaticPaths() {
+    const pilotos = await getCollection('pilotos');
+
+    return pilotos.map((p) => ({
+        params: { idpilotos: p.id },
+    }));
+}
+
+---
+
+<Layout title={`Piloto`}>
+    <img id="background" src={background.src} alt="" fetchpriority="high" />
+    <header class="header">
+        <div class="title-container">
+            <h1>Pilotos</h1>
+        </div>
+
+        <!-- Botón de menú -->
+        <button id="menu-icon">☰</button>
+
+        <!-- Contenedor de botones -->
+        <div id="menu-items" class="buttons-container">
+            <a href="/circuitos" class="menu-button">Circuitos</a>
+            <a href="/pilotos" class="menu-button">Pilotos</a>
+            <a href="/escuderias" class="menu-button">Escuderías</a>
+            <a href="/puntos" class="menu-button">Puntos</a>
+        </div>
+    </header>
+    <main>
+        <div id="pilotos-mostrar">
+            <div class="piloto-big-card active">
+                <img 
+                    transition:name={`image-${idpilotos}`}  
+                    src={imgbig}  
+                    alt={`${nombre} ${apellido}`} 
+                    loading="lazy" 
+                    class="piloto-image" 
+                    decoding="async" 
+                />
+                <div class="piloto-info">
+                    <h2 class="piloto-name">{nombre} {apellido}</h2>
+                </div>
+                <!-- <div class="descripcion"> me falta por personalizar esto
+                    <p>Nacionalidad:{nacionalidad}</p>
+                    <p>Tiene {edad}</p>
+                    <p>Altura: {altura} Peso: {peso}</p>
+                    <p>En el equipo que esta es: {equipo}</p>
+                    <p>Los puntos que tiene {nombre} son {puntos}</p>
+                    <p>Los titulos que tiene {nombre} son {titulos}</p>-->
+                </div>
+            </div>
+        </div>
+    </main>
+    
+</Layout>
+

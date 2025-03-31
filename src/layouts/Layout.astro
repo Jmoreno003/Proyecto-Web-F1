@@ -1,3 +1,7 @@
+---
+import { ClientRouter } from "astro:transitions";
+---
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -6,6 +10,7 @@
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
         <title>F1 Time</title>
+        <ClientRouter/>
     </head>
     <body class="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white">
         <div class="w-full">

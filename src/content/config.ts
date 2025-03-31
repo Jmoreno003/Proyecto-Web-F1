@@ -13,4 +13,20 @@ const circuitos = defineCollection({
     }),
 });
 
-export const collections = { circuitos };
+const pilotos = defineCollection({
+    schema: z.object({
+        imgcard: z.string(),
+        imgbig: z.string(),
+        nombre: z.string(),
+        apellido: z.string(),
+        nacionalidad: z.string(),
+        edad: z.string(),
+        altura: z.string(),
+        peso: z.string(),
+        equipo: z.string(),
+        puntos: z.string(),
+        titulos: z.string(),
+    }),
+});
+
+export const collections = { circuitos , pilotos };
