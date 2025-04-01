@@ -6,6 +6,7 @@ Longitud: 5.891 km.
 Vueltas: 52 (para un total de 306.198 km).
 Curvas: 18 (una combinación de curvas rápidas y técnicas, como Maggots, Becketts y Chapel).
 Características: Silverstone es uno de los circuitos más icónicos y antiguos de la Fórmula 1, conocido por su velocidad, historia y diseño técnico que desafía tanto a los pilotos como a los ingenieros.
+Orden: 12
 ---
 
 # Gran Premio de Gran Bretaña 🏁

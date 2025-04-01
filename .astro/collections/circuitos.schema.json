@@ -4,6 +4,9 @@
     "circuitos": {
       "type": "object",
       "properties": {
+        "Orden": {
+          "type": "number"
+        },
         "Titulo": {
           "type": "string"
         },
@@ -30,6 +33,7 @@
         }
       },
       "required": [
+        "Orden",
         "Titulo",
         "Imagen",
         "Ubicación",

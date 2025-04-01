@@ -6,6 +6,7 @@ Longitud: 5.451 km.
 Vueltas: 56 (para un total de 305.066 km).
 Curvas: 16 (una combinación de curvas rápidas, lentas y una larga recta).
 Características: El circuito es famoso por su diseño en forma de "Shanghái", que representa el carácter chino "上" (Shàng, que significa "arriba" o "superior"). También es conocido por su larga recta de 1.2 km y la curva 1-2-3, una secuencia de curvas cerradas que exigen mucho de los neumáticos y la aerodinámica.
+Orden: 2
 ---
 
 ## Historia del Gran Premio de China

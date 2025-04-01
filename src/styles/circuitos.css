@@ -232,6 +232,17 @@ h1 {
     z-index: 2; /* Asegura que el texto esté por encima de la imagen */
 }
 
+.circuito-info {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ffffff;
+    margin-top: 0.5rem;
+}
+
+.circuito-info p {
+    margin: 0.2rem 0;
+}
+
 /* Media Queries para responsividad */
 @media (max-width: 639px) {
     #menu-icon {

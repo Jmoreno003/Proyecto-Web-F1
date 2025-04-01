@@ -6,6 +6,7 @@ Longitud: 5.807 km.
 Vueltas: 53 (para un total de 307.471 km).
 Curvas: 18 (incluyendo curvas rápidas, lentas y la famosa "S" de Suzuka).
 Características: Es uno de los pocos circuitos en el mundo con un diseño en forma de "8", lo que lo hace único. También es conocido por su combinación de curvas técnicas y rápidas, como la "S" de Suzuka, la curva 130R y la chicane de Casio.
+Orden: 3
 ---
 
 # Gran Premio de Japón 🏁

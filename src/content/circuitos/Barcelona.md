@@ -6,6 +6,7 @@ Longitud: 4.675 km.
 Vueltas: 66 (para un total de 308.424 km).
 Curvas: 14 (una combinación de curvas rápidas, lentas y una larga recta principal).
 Características: El Circuit de Barcelona-Catalunya es conocido por ser un circuito técnico que pone a prueba el equilibrio aerodinámico y la tracción de los monoplazas. Es un lugar clave para las pruebas de pretemporada debido a su diseño variado.
+Orden: 9
 ---
 
 # Gran Premio de España 🏁

@@ -6,6 +6,7 @@ Longitud: 7.004 km.
 Vueltas: 44 (para un total de 308.052 km).
 Curvas: 19 (una combinación de curvas rápidas, técnicas y cambios de elevación icónicos como Eau Rouge y Raidillon).
 Características: Spa-Francorchamps es uno de los circuitos más legendarios y desafiantes del calendario de la Fórmula 1, conocido por su longitud, velocidad y cambios de elevación.
+Orden: 13
 ---
 
 # Gran Premio de Bélgica 🏁

@@ -6,6 +6,7 @@ Longitud: 5.412 km.
 Vueltas: 57 (para un total de 308.238 km).
 Curvas: 15 (una combinación de curvas rápidas, lentas y varias zonas de adelantamiento).
 Características: El circuito es conocido por su superficie abrasiva, que desgasta mucho los neumáticos, y por su diseño que combina rectas largas con secciones técnicas. También cuenta con varias configuraciones, incluyendo el "Circuito Exterior" y el "Circuito de Resistencia", aunque la F1 utiliza principalmente el diseño tradicional.
+Orden: 4
 ---
 # Gran Premio de Baréin 🏁
 

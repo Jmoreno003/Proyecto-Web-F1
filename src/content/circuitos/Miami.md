@@ -6,6 +6,7 @@ Longitud: 5.412 km.
 Vueltas: 57 (para un total de 308.326 km).
 Curvas: 19 (una combinación de curvas rápidas, lentas y varias zonas de adelantamiento).
 Características: El circuito de Miami es un trazado urbano diseñado alrededor del Hard Rock Stadium. Combina rectas largas con curvas técnicas, ofreciendo un desafío único para los pilotos y equipos.
+Orden: 6
 ---
 
 # Gran Premio de Miami 🏁

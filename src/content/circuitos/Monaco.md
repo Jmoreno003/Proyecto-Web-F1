@@ -6,6 +6,7 @@ Longitud: 3.337 km.
 Vueltas: 78 (para un total de 260.286 km).
 Curvas: 19 (una combinación de curvas cerradas, chicanes y rectas cortas).
 Características: El circuito de Mónaco es uno de los más icónicos y desafiantes del calendario de la Fórmula 1. Su diseño estrecho y sinuoso, junto con las barreras cercanas, lo convierten en un verdadero reto para los pilotos.
+Orden: 8
 ---
 
 # Gran Premio de Mónaco 🏁

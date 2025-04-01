@@ -6,6 +6,7 @@ Longitud: 4.361 km.
 Vueltas: 70 (para un total de 305.27 km).
 Curvas: 14 (una combinación de curvas rápidas, lentas y una larga recta antes de la chicane final).
 Características: El Circuito Gilles Villeneuve es conocido por su diseño técnico y su alta velocidad, con zonas de frenado intensas y el famoso "Muro de los Campeones" en la última curva.
+Orden: 10
 ---
 
 # Gran Premio de Canadá 🏁

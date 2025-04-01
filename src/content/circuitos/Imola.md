@@ -6,6 +6,7 @@ Longitud: 4.909 km.
 Vueltas: 63 (para un total de 309.049 km).
 Curvas: 19 (una combinación de curvas rápidas, técnicas y chicanes desafiantes).
 Características: El circuito de Imola, oficialmente llamado Autodromo Internazionale Enzo e Dino Ferrari, es conocido por su diseño técnico y su historia en la Fórmula 1. Es un circuito estrecho y rápido, lo que lo hace desafiante para los adelantamientos.
+Orden: 7
 ---
 
 # Gran Premio de Emilia-Romaña 🏁

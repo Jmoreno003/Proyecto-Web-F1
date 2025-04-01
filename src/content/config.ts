@@ -3,6 +3,7 @@ import { defineCollection, z } from "astro:content";
 
 const circuitos = defineCollection({
     schema: z.object({
+        Orden: z.number(),
         Titulo: z.string(),
         Imagen: z.string(),
         Ubicación: z.string(),

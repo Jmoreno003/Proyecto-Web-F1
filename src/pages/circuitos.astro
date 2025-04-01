@@ -5,7 +5,7 @@ import Layout from '../layouts/Layout.astro';
 import '../styles/circuitos.css';
 import background from '../assets/fondopilotos.jpg';
 
-const circuitos = await getCollection('circuitos');
+const circuitos = (await getCollection("circuitos")).sort((a, b) => a.data.Orden - b.data.Orden);
 const { idcircuitos } = Astro.params;
 ---
 
@@ -32,7 +32,7 @@ const { idcircuitos } = Astro.params;
             {
                 circuitos.map(circuito => {
                     const { id, data } = circuito;
-                    const { Imagen, Titulo } = data;
+                    const { Imagen, Titulo, Orden} = data;
 
                     return (
                         <a href={`/circuitos/${id}`} class="circuito-card" data-id={id}>

@@ -6,6 +6,7 @@ Longitud: 5.278 km.
 Vueltas: 58 (para un total de 306.124 km).
 Curvas: 14 (una combinación de curvas rápidas y lentas, con varias zonas de adelantamiento).
 Características: Es un circuito técnico que combina rectas rápidas con secciones lentas y curvas cerradas, lo que lo hace exigente para los pilotos y los neumáticos.
+Orden: 1
 ---
 
 ## Historia del Gran Premio de Australia

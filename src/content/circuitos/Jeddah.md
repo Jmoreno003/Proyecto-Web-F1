@@ -6,6 +6,7 @@ Longitud: 6.174 km.
 Vueltas: 50 (para un total de 308.450 km).
 Curvas: 27 (una combinación de curvas rápidas, lentas y cambios de dirección rápidos).
 Características: Es un circuito extremadamente rápido, con una velocidad promedio de más de 250 km/h. También es conocido por sus muros cercanos, lo que lo hace muy exigente y peligroso.
+Orden: 5
 ---
 
 # Gran Premio de Arabia Saudita 🏁

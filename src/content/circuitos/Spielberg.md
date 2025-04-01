@@ -6,6 +6,7 @@ Longitud: 4.318 km.
 Vueltas: 71 (para un total de 306.452 km).
 Curvas: 10 (una combinación de curvas rápidas y rectas largas).
 Características: El Red Bull Ring es un circuito corto pero técnico, conocido por sus cambios de elevación y su diseño que favorece las carreras emocionantes y los adelantamientos.
+Orden: 11
 ---
 
 # Gran Premio de Austria 🏁
