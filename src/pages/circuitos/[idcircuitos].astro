@@ -1,0 +1,65 @@
+---
+// filepath: c:\Users\byjos\Documents\Cursos\Astro5\Web-F1\src\pages\circuitos\[idcircuitos].astro
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import background from '../../assets/fondopilotos.jpg';
+import '../../styles/idcircuitos.css';
+
+export const prerender = true; // Habilitar la generación estática de las páginas dinámicas
+
+const circuitos = await getCollection('circuitos');
+const { idcircuitos } = Astro.params;
+
+const circuito = circuitos.find((c) => c.id === idcircuitos);
+
+if (!circuito) {
+    throw new Error(`Circuito con id ${idcircuitos} no encontrado`);
+}
+
+const { Imagen, Titulo, Ubicación, Longitud, Vueltas, Curvas, Características } = circuito.data;
+
+export async function getStaticPaths() {
+    const circuitos = await getCollection('circuitos');
+
+    return circuitos.map((c) => ({
+        params: { idcircuitos: c.id },
+    }));
+}
+---
+
+<Layout title={`Circuito`}>
+    <img id="background" src={background.src} alt="" fetchpriority="high" />
+    <header class="header">
+        <div class="title-container">
+            <h1>Circuitos</h1>
+        </div>
+
+        <!-- Botón de menú -->
+        <button id="menu-icon">☰</button>
+
+        <!-- Contenedor de botones -->
+        <div id="menu-items" class="buttons-container">
+            <a href="/circuitos" class="menu-button">Circuitos</a>
+            <a href="/pilotos" class="menu-button">Pilotos</a>
+            <a href="/escuderias" class="menu-button">Escuderías</a>
+            <a href="/puntos" class="menu-button">Puntos</a>
+        </div>
+    </header>
+    <main>
+        <div id="circuitos-mostrar">
+            <div class="circuito-big-card active">
+                <img
+                    transition:name={`image-${idcircuitos}`}
+                    src={Imagen} 
+                    alt={Titulo} 
+                    loading="lazy" 
+                    class="circuito-image" 
+                    decoding="async" 
+                />
+                <div class="circuito-info">
+                    <h2 class="circuito-name">{Titulo}</h2>
+                </div>
+            </div>
+        </div>
+    </main>
+</Layout>

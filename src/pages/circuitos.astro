@@ -6,6 +6,7 @@ import '../styles/circuitos.css';
 import background from '../assets/fondopilotos.jpg';
 
 const circuitos = await getCollection('circuitos');
+const { idcircuitos } = Astro.params;
 ---
 
 <Layout title="F1 Time 🏎️">
@@ -30,15 +31,15 @@ const circuitos = await getCollection('circuitos');
         <div class="circuitos">
             {
                 circuitos.map(circuito => {
-                    const { slug, data } = circuito;
+                    const { id, data } = circuito;
                     const { Imagen, Titulo } = data;
 
                     return (
-                        <a href={`/circuitos/${slug}`} class="circuito-card" data-id={slug}>
+                        <a href={`/circuitos/${id}`} class="circuito-card" data-id={id}>
                             <img
                                 src={Imagen}
                                 alt={Titulo}
-                                
+                                class="circuito-image"
                             />
                         </a>
                     );
@@ -50,13 +51,13 @@ const circuitos = await getCollection('circuitos');
         <div class="circuitos-mostrar">
             {
                 circuitos.map(circuito => {
-                    const { slug, data } = circuito;
+                    const { id, data } = circuito;
                     const { Imagen, Titulo } = data;
 
                     return (
-                        <a href={`/circuito/${slug}`} class="circuito-big-card" data-id={`circuito-big-${slug}`}>
+                        <a href={`/circuitos/${id}`} class="circuito-big-card" data-id={`circuito-big-${id}`}>
                             <img 
-                                src={`/circuit${Imagen}`}  
+                                src={Imagen} 
                                 alt={`${Titulo}`} 
                                 loading="lazy" 
                                 class="circuito-image" 
@@ -96,8 +97,17 @@ const circuitos = await getCollection('circuitos');
             }
         }
     
-        // Ejecutar la función al cargar la página
+         // Ejecutar la función al cargar la página
         document.addEventListener('DOMContentLoaded', initializeMenu);
+
+        // Otra función para manejar el hover de los pilotos
+        document.addEventListener('astro:after-swap', () => {
+            initializeCircuitos();
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeCircuitos();
+        });
     
         // Inicializar el comportamiento de los circuitos
         function initializeCircuitos() {
