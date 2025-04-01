@@ -61,5 +61,17 @@ import '../styles/index.css';
             }
         });
     }
+
+    // Interceptar clics en los enlaces y recargar antes de redirigir
+    const menuButtons = document.querySelectorAll('.menu-button');
+    menuButtons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevenir la navegación inmediata
+            const href = button.getAttribute('href'); // Obtener el destino
+            if (href) {
+                window.location.href = href; // Redirigir después de recargar
+            }
+        });
+    });
 </script>
 </Layout>

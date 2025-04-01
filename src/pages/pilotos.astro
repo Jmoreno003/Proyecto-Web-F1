@@ -97,59 +97,67 @@ const { idpilotos } = Astro.params;
         // Ejecutar la función al cargar la página
         document.addEventListener('DOMContentLoaded', initializeMenu);
 
-        // Otra función para manejar el hover de los pilotos
-        document.addEventListener('astro:after-swap', () => {
-        initializePilotos();
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-        initializePilotos();
-        });
-
-    function initializePilotos() {
-            const pilotCards = document.querySelectorAll('.piloto-card');
-        const bigPilots = document.querySelectorAll('.piloto-big-card');
-
-        // Asegurar que todos los pilotos grandes estén ocultos al inicio
-        bigPilots.forEach(pilot => pilot.classList.add('hidden'));
-
-        let currentPilotoId: string | null = null;
-
-        pilotCards.forEach((singlePilotCard) => {
-            singlePilotCard.addEventListener('mouseenter', () => {
-                const id = singlePilotCard.getAttribute('data-id');
-
-                if (id) {
-                    const event = new CustomEvent("piloto-hovered", { detail: { id } });
-                    document.dispatchEvent(event);
+        // Interceptar clics en los enlaces y recargar antes de redirigir
+        const menuButtons = document.querySelectorAll('.menu-button');
+        menuButtons.forEach((button) => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevenir la navegación inmediata
+                const href = button.getAttribute('href'); // Obtener el destino
+                if (href) {
+                    window.location.href = href; // Redirigir después de recargar
                 }
             });
         });
 
-        document.addEventListener("piloto-hovered", (event) => {
-            const customEvent = event as CustomEvent<{ id: string }>;
-            const id = customEvent.detail.id;
-
-            if (currentPilotoId === id) return;
-
-            // Ocultar todos los pilotos antes de mostrar el nuevo
-            bigPilots.forEach(pilot => pilot.classList.add('hidden'));
-
-            // Mostrar solo el piloto correspondiente
-            document.querySelector(`[data-id="piloto-big-${id}"]`)?.classList.remove('hidden');
-
-            currentPilotoId = id;
+        // Inicializar el comportamiento de los pilotos
+        document.addEventListener('astro:after-swap', () => {
+            initializePilotos();
         });
 
-        // Reseteamos el estado al volver atrás
-        window.addEventListener("popstate", () => {
-            bigPilots.forEach(pilot => pilot.classList.add('hidden'));
-            currentPilotoId = null;
+        document.addEventListener('DOMContentLoaded', () => {
+            initializePilotos();
         });
-    }
 
+        function initializePilotos() {
+            const pilotCards = document.querySelectorAll('.piloto-card');
+            const bigPilots = document.querySelectorAll('.piloto-big-card');
 
+            // Asegurar que todos los pilotos grandes estén ocultos al inicio
+            bigPilots.forEach(pilot => pilot.classList.add('hidden'));
 
+            let currentPilotoId: string | null = null;
 
+            pilotCards.forEach((singlePilotCard) => {
+                singlePilotCard.addEventListener('mouseenter', () => {
+                    const id = singlePilotCard.getAttribute('data-id');
+
+                    if (id) {
+                        const event = new CustomEvent("piloto-hovered", { detail: { id } });
+                        document.dispatchEvent(event);
+                    }
+                });
+            });
+
+            document.addEventListener("piloto-hovered", (event) => {
+                const customEvent = event as CustomEvent<{ id: string }>;
+                const id = customEvent.detail.id;
+
+                if (currentPilotoId === id) return;
+
+                // Ocultar todos los pilotos antes de mostrar el nuevo
+                bigPilots.forEach(pilot => pilot.classList.add('hidden'));
+
+                // Mostrar solo el piloto correspondiente
+                document.querySelector(`[data-id="piloto-big-${id}"]`)?.classList.remove('hidden');
+
+                currentPilotoId = id;
+            });
+
+            // Reseteamos el estado al volver atrás
+            window.addEventListener("popstate", () => {
+                bigPilots.forEach(pilot => pilot.classList.add('hidden'));
+                currentPilotoId = null;
+            });
+        }
     </script>
 </Layout>

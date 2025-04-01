@@ -79,12 +79,12 @@ const { idcircuitos } = Astro.params;
         if (navigationEntries.length > 0 && navigationEntries[0]?.type === "back_forward") {
             window.location.reload();
         }
-    
+
         // Inicializar el comportamiento del menú
         function initializeMenu() {
             const menuIcon = document.getElementById('menu-icon');
             const menuItems = document.getElementById('menu-items');
-    
+
             if (menuIcon && menuItems) {
                 menuIcon.addEventListener('click', () => {
                     // Alternar la visibilidad del menú
@@ -96,63 +96,66 @@ const { idcircuitos } = Astro.params;
                 });
             }
         }
-    
-         // Ejecutar la función al cargar la página
+
+        // Ejecutar la función al cargar la página
         document.addEventListener('DOMContentLoaded', initializeMenu);
 
-        // Otra función para manejar el hover de los pilotos
-        document.addEventListener('astro:after-swap', () => {
-            initializeCircuitos();
+        // Interceptar clics en los enlaces y recargar antes de redirigir
+        const menuButtons = document.querySelectorAll('.menu-button');
+        menuButtons.forEach((button) => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevenir la navegación inmediata
+                const href = button.getAttribute('href'); // Obtener el destino
+                if (href) {
+                    window.location.href = href; // Redirigir después de recargar
+                }
+            });
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
-            initializeCircuitos();
-        });
-    
         // Inicializar el comportamiento de los circuitos
         function initializeCircuitos() {
             const circuitoCards = document.querySelectorAll('.circuito-card');
             const bigCircuitos = document.querySelectorAll('.circuito-big-card');
-    
+
             // Asegurar que todos los circuitos grandes estén ocultos al inicio
             bigCircuitos.forEach(circuito => circuito.classList.add('hidden'));
-    
+
             // Declarar la variable currentCircuitoId
-            let currentCircuitoId: string| null = null;
-    
+            let currentCircuitoId = null;
+
             circuitoCards.forEach((singleCircuitoCard) => {
                 singleCircuitoCard.addEventListener('mouseenter', () => {
                     const id = singleCircuitoCard.getAttribute('data-id');
-    
+
                     if (id) {
                         const event = new CustomEvent("circuito-hovered", { detail: { id } });
                         document.dispatchEvent(event);
                     }
                 });
             });
-    
+
             document.addEventListener("circuito-hovered", (event) => {
                 const customEvent = event as CustomEvent<{ id: string }>;
                 const id = customEvent.detail.id;
-    
+
                 if (currentCircuitoId === id) return;
-    
+
                 // Ocultar todos los circuitos antes de mostrar el nuevo
                 bigCircuitos.forEach(circuito => circuito.classList.add('hidden'));
-    
+
                 // Mostrar solo el circuito correspondiente
                 document.querySelector(`[data-id="circuito-big-${id}"]`)?.classList.remove('hidden');
-    
+
                 currentCircuitoId = id;
             });
-    
+
             // Reseteamos el estado al volver atrás
             window.addEventListener("popstate", () => {
                 bigCircuitos.forEach(circuito => circuito.classList.add('hidden'));
                 currentCircuitoId = null;
             });
         }
-    
+
         document.addEventListener('DOMContentLoaded', initializeCircuitos);
     </script>
 </Layout>
