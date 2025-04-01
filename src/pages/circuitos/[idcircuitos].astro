@@ -62,4 +62,33 @@ export async function getStaticPaths() {
             </div>
         </div>
     </main>
+    <script>
+        // Inicializar el comportamiento del menú
+        function initializeMenu() {
+            const menuIcon = document.getElementById('menu-icon');
+            const menuItems = document.getElementById('menu-items');
+
+            if (menuIcon && menuItems) {
+                menuIcon.addEventListener('click', () => {
+                    // Alternar la visibilidad del menú
+                    menuItems.style.display = menuItems.style.display === 'flex' ? 'none' : 'flex';
+                });
+            }
+        }
+
+        // Ejecutar la función al cargar la página
+        document.addEventListener('DOMContentLoaded', initializeMenu);
+
+        // Interceptar clics en los enlaces y recargar antes de redirigir
+        const menuButtons = document.querySelectorAll('.menu-button');
+        menuButtons.forEach((button) => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevenir la navegación inmediata
+                const href = button.getAttribute('href'); // Obtener el destino
+                if (href) {
+                    window.location.href = href; // Redirigir después de recargar
+                }
+            });
+        });
+    </script>
 </Layout>
