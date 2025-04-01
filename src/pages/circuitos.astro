@@ -32,7 +32,7 @@ const { idcircuitos } = Astro.params;
             {
                 circuitos.map(circuito => {
                     const { id, data } = circuito;
-                    const { Imagen, Titulo, Orden} = data;
+                    const { Imagen, Titulo, Orden } = data;
 
                     return (
                         <a href={`/circuitos/${id}`} class="circuito-card" data-id={id}>
@@ -74,11 +74,12 @@ const { idcircuitos } = Astro.params;
     </main>
 
     <script>
-        // Forzar recarga completa al entrar en la página
-        const navigationEntries = performance.getEntriesByType("navigation");
-        if (navigationEntries.length > 0 && navigationEntries[0]?.type === "back_forward") {
-            window.location.reload();
-        }
+        // Forzar recarga completa al entrar en la página, incluso al usar "Atrás"
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                window.location.reload();
+            }
+        });
 
         // Inicializar el comportamiento del menú
         function initializeMenu() {
@@ -88,11 +89,7 @@ const { idcircuitos } = Astro.params;
             if (menuIcon && menuItems) {
                 menuIcon.addEventListener('click', () => {
                     // Alternar la visibilidad del menú
-                    if (menuItems.style.display === 'flex') {
-                        menuItems.style.display = 'none';
-                    } else {
-                        menuItems.style.display = 'flex';
-                    }
+                    menuItems.style.display = menuItems.style.display === 'flex' ? 'none' : 'flex';
                 });
             }
         }
