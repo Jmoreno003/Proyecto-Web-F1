@@ -155,7 +155,7 @@ h1 {
     position: absolute;
     bottom: 77%;
     left: 55%;
-    width: 30%; /* Hacer el recuadro más pequeño */
+    width: 30%; /* Hace el recuadro más pequeño */
     background: linear-gradient(to top, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1));
     color: white;
     text-align: center;
@@ -170,7 +170,7 @@ h1 {
     text-transform: uppercase;
     border-radius: 0.5rem; /* Bordes redondeados */
     z-index: 2;
-    letter-spacing: 1rem; /* Espaciado ligero para mejorar la lectura */
+    letter-spacing: 1rem; /* Espacio ligero para mejorar la lectura */
 }
 
 .descripcion {

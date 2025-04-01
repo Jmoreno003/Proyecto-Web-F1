@@ -165,6 +165,10 @@ h1 {
     transform: scale(1.1); /* Aumenta ligeramente el tamaño de la imagen */
 }
 
+.nombre-movil{
+    display: none;
+}
+
 .pilotos-mostrar {
     position: absolute;
     right: 14%; /* Ajusta la distancia de la derecha */
@@ -240,6 +244,32 @@ h1 {
         grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Cartas más pequeñas en pantallas pequeñas */
         gap: 0.5rem; /* Menor separación entre cartas */
     }
+
+    .nombre-movil {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%; /* Asegura que ocupe toda la anchura de la tarjeta */
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-size: 82%;
+        background: linear-gradient(to top, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1)); /* Degradado estilo F1 */
+        padding: 5px 0; /* Agrega algo de padding para mejor apariencia */
+        text-align: center;
+        font-size: 0.5rem;
+    }
+
+    .pilotos-mostrar {
+        top: 112%;
+        left: 10%;
+        width: 80%; /* Ajusta el tamaño del contenedor */
+    }
+    .piloto-name {
+        font-size: 0.8rem; /* Tamaño de fuente más pequeño para pantallas pequeñas */
+        line-height: 1.2; /* Espaciado entre líneas más pequeño */
+        letter-spacing: 0.5rem; /* Espaciado ligero para mejorar la lectura */
+    }
 }
 
 @media (min-width: 640px) {
@@ -258,6 +288,7 @@ h1 {
     #menu-icon {
         display: none; /* Ocultar el botón de menú */
     }
+    
 }
 
 @media (min-width: 1024px) {

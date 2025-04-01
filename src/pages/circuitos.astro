@@ -41,6 +41,9 @@ const { idcircuitos } = Astro.params;
                                 alt={Titulo}
                                 class="circuito-image"
                             />
+                            <div class="nombre-movil">
+                                <h2 class="circuito-movil">{Titulo}</h2>
+                            </div>
                         </a>
                     );
                 })
@@ -118,7 +121,7 @@ const { idcircuitos } = Astro.params;
             bigCircuitos.forEach(circuito => circuito.classList.add('hidden'));
 
             // Declarar la variable currentCircuitoId
-            let currentCircuitoId = null;
+            let currentCircuitoId: string | null = null;
 
             circuitoCards.forEach((singleCircuitoCard) => {
                 singleCircuitoCard.addEventListener('mouseenter', () => {

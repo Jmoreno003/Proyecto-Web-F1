@@ -43,6 +43,9 @@ const { idpilotos } = Astro.params;
                                 alt={`Tarjeta del piloto ${nombre} ${apellido}`} 
                                 class="piloto-image" 
                             />
+                            <div class="nombre-movil">
+                                <h2 class="piloto-movil">{nombre} {apellido}</h2>
+                            </div>
                         </a>
                     );
                 })
@@ -109,6 +112,7 @@ const { idpilotos } = Astro.params;
             });
         });
 
+        
         // Inicializar el comportamiento de los pilotos
         document.addEventListener('astro:after-swap', () => {
             initializePilotos();
@@ -159,5 +163,6 @@ const { idpilotos } = Astro.params;
                 currentPilotoId = null;
             });
         }
+
     </script>
 </Layout>

@@ -56,20 +56,57 @@ export async function getStaticPaths() {
                     class="piloto-image" 
                     decoding="async" 
                 />
-                <div class="piloto-info">
-                    <h2 class="piloto-name">{nombre} {apellido}</h2>
-                </div>
-                <!-- <div class="descripcion"> me falta por personalizar esto
-                    <p>Nacionalidad:{nacionalidad}</p>
+            </div>
+            <div class="piloto-info">
+                <h2 class="piloto-name">{nombre} {apellido}</h2>
+            </div>
+            <div id="descripcion">
+                <div class="descripcion-corta">
+                    <p>Nacionalidad: <img src={nacionalidad} alt={`Bandera de ${nacionalidad}`} class="piloto-nacionalidad" /></p>
                     <p>Tiene {edad}</p>
                     <p>Altura: {altura} Peso: {peso}</p>
+                </div>
+                <div class="descripcionlarga">
                     <p>En el equipo que esta es: {equipo}</p>
                     <p>Los puntos que tiene {nombre} son {puntos}</p>
-                    <p>Los titulos que tiene {nombre} son {titulos}</p>-->
+                    <p>Los titulos que tiene {nombre} son {titulos}</p>
                 </div>
             </div>
         </div>
     </main>
     
+    <script>
+         // Inicializar el comportamiento del menú
+        function initializeMenu() {
+            const menuIcon = document.getElementById('menu-icon');
+            const menuItems = document.getElementById('menu-items');
+
+            if (menuIcon && menuItems) {
+                menuIcon.addEventListener('click', () => {
+                    // Alternar la visibilidad del menú
+                    if (menuItems.style.display === 'flex') {
+                        menuItems.style.display = 'none';
+                    } else {
+                        menuItems.style.display = 'flex';
+                    }
+                });
+            }
+        }
+
+        // Ejecutar la función al cargar la página
+        document.addEventListener('DOMContentLoaded', initializeMenu);
+
+        // Interceptar clics en los enlaces y recargar antes de redirigir
+        const menuButtons = document.querySelectorAll('.menu-button');
+        menuButtons.forEach((button) => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevenir la navegación inmediata
+                const href = button.getAttribute('href'); // Obtener el destino
+                if (href) {
+                    window.location.href = href; // Redirigir después de recargar
+                }
+            });
+        });
+    </script>
 </Layout>
 
